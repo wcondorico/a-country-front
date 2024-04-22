@@ -1,0 +1,50 @@
+<app-searchbox
+  [placeHolder]="'Buscar por región'"
+  (eventSearch)="search($event)"
+></app-searchbox>
+
+<div class="flex flex-col">
+  <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+    <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
+      <div class="overflow-hidden">
+        <table class="min-w-full text-left text-sm font-light">
+          <thead class="border-b font-medium dark:border-neutral-500">
+            <tr>
+              <th scope="col" class="px-6 py-4">#</th>
+              <th scope="col" class="px-6 py-4">Región</th>
+              <th scope="col" class="px-6 py-4">País</th>
+              <th scope="col" class="px-6 py-4">Capital</th>
+              <th scope="col" class="px-6 py-4">Bandera</th>
+              <th scope="col" class="px-6 py-4">Población</th>
+            </tr>
+          </thead>
+          <tbody>
+            @if (countryList.length) {
+              @for(country of countryList; track country; let i = $index ){
+                <tr>
+                  <td class="px-6 py-1">{{ i+1 }}</td>
+                  <td class="px-6 py-1">{{ country.region }}</td>
+                  <td class="px-6 py-1">{{ country.name.official }}</td>
+                  <td class="px-6 py-1">{{ country.capital }}</td>
+                  <td class="px-6 py-1">
+                    <img [src]="country.flags.svg" [alt]="country.name" class="w-7">
+                  </td>
+                  <td class="px-6 py-1">{{ country.population | number }}</td>
+                  <td class="px-6 py-1"><a href="" class="text-blue-800 underline">Ver más</a></td>
+                </tr>
+              }
+            }
+            </tbody>
+        </table>
+        @if(!countryList.length){
+          <div
+          class="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4"
+          >
+            <p class="font-bold">Lista vacia</p>
+            <p>Agregue el nombre de un continente a su busqueda</p>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</div>
