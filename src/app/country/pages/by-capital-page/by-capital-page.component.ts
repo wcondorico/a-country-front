@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
-import { CountryApiService } from '../../services/apiCountry.service';
 import { CountryInterface } from '../../interfaces/CountryApiInterface';
+import { CountryApiService } from '../../services/apiCountry.service';
 
 @Component({
   selector: 'app-by-capital-page',
@@ -10,11 +10,15 @@ import { CountryInterface } from '../../interfaces/CountryApiInterface';
 export class ByCapitalPageComponent {
   private readonly apiService: CountryApiService = inject(CountryApiService)
 
-  countryList: CountryInterface[] = []
+  public countryList: CountryInterface[] = [];
+  public isLoading: boolean = false;
 
-  search(value: string): void{
-    this.apiService.searchCapital(value).subscribe( capital => {
+  searchByCapital(value: string): void{
+    this.isLoading = true;
+    this.apiService.searchCapital(value)
+    .subscribe( capital => {
       this.countryList=capital 
+      this.isLoading = false;
     })
   }
 

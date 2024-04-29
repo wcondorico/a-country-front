@@ -10,11 +10,14 @@ import { CountryInterface } from '../../interfaces/CountryApiInterface';
 export class ByCountryPageComponent {
   private readonly apiService: CountryApiService = inject(CountryApiService)
   
-  countryList: CountryInterface[] = []
+  public countryList: CountryInterface[] = [];
+  public isLoading: boolean = false;
 
-  search(value: string): void{
+  searchByCountry(value: string): void{
+    this.isLoading = true;
     this.apiService.searchCountry(value).subscribe( country => {
       this.countryList=country 
+      this.isLoading = false;
     })
   }
   
