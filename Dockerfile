@@ -9,7 +9,6 @@ RUN npm install
 
 RUN npm install -g @angular/cli@17.2  
 
-
 COPY . .
 
 CMD ["ng", "serve", "--host", "0.0.0.0"]
