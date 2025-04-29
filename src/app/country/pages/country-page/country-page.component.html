@@ -1,12 +1,12 @@
 <h1 class="text-3xl mb-4">
-  País: <strong>{{ country?.name?.common }}</strong>
+  País: <strong>{{ country.name.common }}</strong>
 </h1>
 <hr />
 <div class="flex my-5 gap-8">
   <div class="flex-col">
     <h2 class="text-3xl font-bold mb-4">Bandera</h2>
     <div>
-      <img [src]="country?.flags?.svg" alt="" class="w-96 my-3" />
+      <img [src]="country.flags.svg" alt="" class="w-96 my-3" />
     </div>
   </div>
 
@@ -17,7 +17,7 @@
     >
       <div class="flex gap-3">
         <p class="font-bold">Población:</p>
-        <p class="font-bold text-gray-500">{{ country?.population }}</p>
+        <p class="font-bold text-gray-500">{{ country.population }}</p>
       </div>
     </div>
 
@@ -26,7 +26,7 @@
     >
       <div class="flex gap-2">
         <p class="font-bold">Código:</p>
-        <p class="font-bold text-gray-500">{{ country?.cca3 }}</p>
+        <p class="font-bold text-gray-500">{{ country.cca3 }}</p>
       </div>
     </div>
   </div>
@@ -36,23 +36,23 @@
   <div class="flex gap-2">
     <span
       class="center relative inline-block select-none whitespace-nowrap rounded-lg bg-emerald-500 py-2 px-3.5 align-baseline font-sans text-xs font-bold uppercase leading-none text-white"
-      >{{ country.translations["ara"]?.common }}
+      >{{ country.translations["ara"].common }}
     </span>
     <span
       class="center relative inline-block select-none whitespace-nowrap rounded-lg bg-emerald-500 py-2 px-3.5 align-baseline font-sans text-xs font-bold uppercase leading-none text-white"
-      >{{ country.translations["bre"]?.common }}
+      >{{ country.translations["bre"].common }}
     </span>
     <span
       class="center relative inline-block select-none whitespace-nowrap rounded-lg bg-emerald-500 py-2 px-3.5 align-baseline font-sans text-xs font-bold uppercase leading-none text-white"
-      >{{ country.translations["ces"]?.common }}
+      >{{ country.translations["ces"].common }}
     </span>
     <span
       class="center relative inline-block select-none whitespace-nowrap rounded-lg bg-emerald-500 py-2 px-3.5 align-baseline font-sans text-xs font-bold uppercase leading-none text-white"
-      >{{ country.translations["cym"]?.common }}
+      >{{ country.translations["cym"].common }}
     </span>
     <span
       class="center relative inline-block select-none whitespace-nowrap rounded-lg bg-emerald-500 py-2 px-3.5 align-baseline font-sans text-xs font-bold uppercase leading-none text-white"
-      >{{ country.translations["spa"]?.common }}
+      >{{ country.translations["spa"].common }}
     </span>
   </div>
 </div>

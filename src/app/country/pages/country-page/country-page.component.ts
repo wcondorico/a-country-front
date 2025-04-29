@@ -17,10 +17,13 @@ export class CountryPageComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.params
       .pipe(switchMap(({ id }) => this.apiService.searchCountryByAlphaCode(id)))
-      .subscribe((country) =>
-        !country
-          ? this.router.navigateByUrl('')
-          : this.country = country
-      );
+      .subscribe({
+        next: ( country ) => {
+          !country? this.router.navigateByUrl(''): this.country = country  
+        },
+        error: () => {
+
+        }
+      })
   }
 }
